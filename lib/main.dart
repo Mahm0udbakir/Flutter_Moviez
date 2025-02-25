@@ -1,48 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'presentation/widgets/app_bar.dart';
-import 'presentation/widgets/bottom_nav_bar.dart';
-import 'presentation/screens/home/home_screen.dart';
-import 'presentation/screens/downloads/downloads_screen.dart';
-import 'presentation/screens/saved/saved_screen.dart';
-import 'presentation/screens/settings/settings_screen.dart';
-import 'business_logic/cubit/user_cubit/user_cubit.dart';
-
+import 'package:movie_app/core/routes/route_generator.dart';
 void main() {
-  runApp(MyApp());
+  runApp(const MovieApp());
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => UserCubit(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: MainScreen(),
-      ),
-    );
-  }
-}
-
-class MainScreen extends StatelessWidget {
-  final List<Widget> screens = [
-    HomeScreen(),
-    DownloadsScreen(),
-    SavedScreen(),
-    SettingsScreen(),
-  ];
+class MovieApp extends StatelessWidget {
+  const MovieApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(),
-      body: BlocBuilder<UserCubit, int>(
-        builder: (context, selectedIndex) {
-          return screens[selectedIndex];
-        },
-      ),
-      bottomNavigationBar: BottomNavBar(),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: router,
     );
   }
 }
