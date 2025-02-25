@@ -1,4 +1,4 @@
-import 'package:movie_app/data/datasources/remote/movie_remote_datasource.dart';
+import 'package:movie_app/data/web_services/remote/movie_remote_datasource.dart';
 import 'package:movie_app/data/models/movie_model.dart';
 
 class MovieRepository {

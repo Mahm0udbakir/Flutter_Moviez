@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/presentation/cubit/user_cubit/user_cubit.dart';
+import 'package:movie_app/business_logic/cubit/user_cubit/user_cubit.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget {
   final List<String> titles = ["Home", "Search", "Saved", "Profile"];
 
   @override
@@ -25,6 +25,4 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
