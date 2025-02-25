@@ -10,7 +10,7 @@ class ApiService {
     try {
       final response = await dioConsumer.get('/movie/popular');
       final List<dynamic> results = response['results'];
-      
+
       return results.map((json) => Movie.fromJson(json)).toList();
     } catch (e) {
       throw Exception('Failed to load popular movies: $e');
