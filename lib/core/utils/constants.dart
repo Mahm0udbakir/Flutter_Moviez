@@ -6,7 +6,7 @@ class Constants {
 }
 
 class MyColors {
-  static const Color myGrey = Color(0x006f8fa0);
-  static const Color myBrown = Color(0x005a4b49);
-  static const Color myRed = Color(0x00b31a35);
+  static const Color myGrey = Color(0xff6f8fa0);
+  static const Color myBrown = Color(0xff5a4b49);
+  static const Color myRed = Color(0xffb31a35);
 }
