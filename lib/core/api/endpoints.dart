@@ -32,6 +32,7 @@ class ApiKey {
   static const String movieId = "movie_id";
   static const String title = "title";
   static const String overview = "overview";
+  static const String posterPath = "poster_path";
   static const String voteAverage = "vote_average";
   static const String releaseDate = "release_date";
 
