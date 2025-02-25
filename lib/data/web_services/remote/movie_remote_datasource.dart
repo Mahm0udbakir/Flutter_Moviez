@@ -6,12 +6,12 @@ class ApiService {
 
   ApiService({required this.dioConsumer});
 
-  Future<List<Movie>> getPopularMovies() async {
+  Future<List<MovieModel>> getPopularMovies() async {
     try {
       final response = await dioConsumer.get('/movie/popular');
       final List<dynamic> results = response['results'];
 
-      return results.map((json) => Movie.fromJson(json)).toList();
+      return results.map((json) => MovieModel.fromJson(json)).toList();
     } catch (e) {
       throw Exception('Failed to load popular movies: $e');
     }

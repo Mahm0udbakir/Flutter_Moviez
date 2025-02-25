@@ -6,7 +6,7 @@ class MovieRepository {
 
   MovieRepository(this.remoteDataSource);
 
-  Future<List<Movie>> fetchPopularMovies() async {
+  Future<List<MovieModel>> fetchPopularMovies() async {
     return await remoteDataSource.getPopularMovies();
   }
 }
