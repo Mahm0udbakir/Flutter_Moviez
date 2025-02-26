@@ -7,7 +7,10 @@ class PopularMovieRepository {
   PopularMovieRepository(this.popularMoviesWebServices);
 
   Future<List<PopularMoviesModel>> fetchPopularMovies() async {
-    final movies = await popularMoviesWebServices.getPopularMovies();
-    return movies.map((movie) => PopularMoviesModel.fromJson(movie)).toList();
+    final response = await popularMoviesWebServices.getPopularMovies();
+    // returns list of map<string,dynamic> as result is list<map<string,dynamic>>
+    return (response["results"] as List)
+        .map((movie) => PopularMoviesModel.fromJson(movie))
+        .toList();
   }
 }

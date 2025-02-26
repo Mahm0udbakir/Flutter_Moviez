@@ -1,76 +1,77 @@
 class PopularMoviesModel {
   int? page;
   List<Result>? results;
-  int? totalpages;
-  int? totalresults;
+  int? totalPages;
+  int? totalResults;
 
-  PopularMoviesModel(
-      {this.page, this.results, this.totalpages, this.totalresults});
+  PopularMoviesModel({
+    this.page,
+    this.results,
+    this.totalPages,
+    this.totalResults,
+  });
 
   PopularMoviesModel.fromJson(Map<String, dynamic> json) {
     page = json["page"];
-    results = json["results"] == null
-        ? null
-        : (json["results"] as List).map((e) => Result.fromJson(e)).toList();
-    totalpages = json["total_pages"];
-    totalresults = json["total_results"];
+    results = json["results"] != null
+        ? (json["results"] as List)
+            .map((e) => Result.fromJson(e as Map<String, dynamic>))
+            .toList()
+        : [];
+    totalPages = json["total_pages"];
+    totalResults = json["total_results"];
   }
 }
 
 class Result {
   bool? adult;
-  String? backdroppath;
-  List<GenreId>? genreids;
+  String? backdropPath;
+  List<int>? genreIds;
   int? id;
-  String? originallanguage;
-  String? originaltitle;
+  String? originalLanguage;
+  String? originalTitle;
   String? overview;
   double? popularity;
-  String? posterpath;
-  String? releasedate;
+  String? posterPath;
+  String? releaseDate;
   String? title;
   bool? video;
-  double? voteaverage;
-  int? votecount;
+  double? voteAverage;
+  int? voteCount;
 
-  Result(
-      {this.adult,
-      this.backdroppath,
-      this.genreids,
-      this.id,
-      this.originallanguage,
-      this.originaltitle,
-      this.overview,
-      this.popularity,
-      this.posterpath,
-      this.releasedate,
-      this.title,
-      this.video,
-      this.voteaverage,
-      this.votecount});
+  Result({
+    this.adult,
+    this.backdropPath,
+    this.genreIds,
+    this.id,
+    this.originalLanguage,
+    this.originalTitle,
+    this.overview,
+    this.popularity,
+    this.posterPath,
+    this.releaseDate,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
+  });
 
   Result.fromJson(Map<String, dynamic> json) {
     adult = json["adult"];
-    backdroppath = json["backdrop_path"];
-    genreids = json["genre_ids"] == null
-        ? null
-        : (json["genre_ids"] as List).map((e) => GenreId.fromJson(e)).toList();
+    backdropPath = json["backdrop_path"];
+    genreIds = json["genre_ids"] != null
+        ? List<int>.from(json["genre_ids"])
+        : [];
     id = json["id"];
-    originallanguage = json["original_language"];
-    originaltitle = json["original_title"];
+    originalLanguage = json["original_language"];
+    originalTitle = json["original_title"];
     overview = json["overview"];
-    popularity = json["popularity"];
-    posterpath = json["poster_path"];
-    releasedate = json["release_date"];
+    popularity = (json["popularity"] as num?)?.toDouble();
+    posterPath = json["poster_path"];
+    releaseDate = json["release_date"];
     title = json["title"];
     video = json["video"];
-    voteaverage = json["vote_average"];
-    votecount = json["vote_count"];
+    voteAverage = (json["vote_average"] as num?)?.toDouble();
+    voteCount = json["vote_count"];
   }
-}
-
-class GenreId {
-  GenreId();
-
-  GenreId.fromJson(Map<String, dynamic> json) {}
 }

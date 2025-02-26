@@ -11,7 +11,6 @@ class MovieCubit extends Cubit<MovieState> {
     emit(MovieLoadingState());
     try {
       final movies = await movieRemoteDataSource.getPopularMovies();
-      emit(MovieSuccessState(movies));
     } catch (error) {
       emit(MovieErrorState(error.toString()));
     }

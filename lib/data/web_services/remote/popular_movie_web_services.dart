@@ -8,10 +8,10 @@ class PopularMoviesWebServices {
 
   PopularMoviesWebServices({required this.dioConsumer});
 
-  Future<List<dynamic>> getPopularMovies() async {
+  Future<Map<String, dynamic>> getPopularMovies() async {
     try {
       Response response = await dioConsumer.get(Endpoints.popularMovies);
-      return List<Map<String, dynamic>>.from(response.data['results']);
+      return response.data; // This returns a Map, not a List
     } catch (e) {
       if (e is DioException) {
         handleDioExceptions(e);
