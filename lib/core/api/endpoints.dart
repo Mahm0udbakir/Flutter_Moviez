@@ -1,5 +1,5 @@
 class Endpoints {
-  static const String baseUrl = "https://api.example.com";
+  static const String baseUrl = "https://api.themoviedb.org/3";
 
   // Authentication
   static const String signIn = "$baseUrl/user/signin";
@@ -7,10 +7,9 @@ class Endpoints {
   static const String logout = "$baseUrl/user/logout";
 
   // Movies
-  static const String popularMovies = "$baseUrl/movies/popular";
-  static const String movieDetails =
-      "$baseUrl/movies/details"; // Needs movie ID
-  static const String searchMovies = "$baseUrl/movies/search"; // Needs query
+  static const String popularMovies = "$baseUrl/movie/popular";
+  static const String movieDetails = "$baseUrl/movie/details";
+  static const String searchMovies = "$baseUrl/movie/search"; // Needs query
 
   // User
   static const String userProfile = "$baseUrl/user/profile";

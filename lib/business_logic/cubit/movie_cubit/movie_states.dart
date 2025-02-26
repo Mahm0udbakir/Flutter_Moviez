@@ -1,4 +1,4 @@
-import 'package:movie_app/data/models/movie_model.dart';
+import 'package:movie_app/data/models/popular_model.dart';
 
 abstract class MovieState {}
 
@@ -7,7 +7,7 @@ class MovieInitialState extends MovieState {}
 class MovieLoadingState extends MovieState {}
 
 class MovieSuccessState extends MovieState {
-  final List<MovieModel> movies;
+  final List<PopularMoviesModel> movies;
 
   MovieSuccessState(this.movies);
 }
