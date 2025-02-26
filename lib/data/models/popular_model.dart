@@ -4,7 +4,8 @@ class PopularMoviesModel {
   int? totalpages;
   int? totalresults;
 
-  PopularMoviesModel({this.page, this.results, this.totalpages, this.totalresults});
+  PopularMoviesModel(
+      {this.page, this.results, this.totalpages, this.totalresults});
 
   PopularMoviesModel.fromJson(Map<String, dynamic> json) {
     page = json["page"];
